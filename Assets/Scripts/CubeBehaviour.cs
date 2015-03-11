@@ -45,7 +45,7 @@ public class CubeBehaviour : Bolt.EntityEventListener<ICubeState> {
 
     void ColorChanged()
     {
-        renderer.material.color = state.CubeColor;
+        GetComponent<Renderer>().material.color = state.CubeColor;
     }
 
 
@@ -83,14 +83,14 @@ public class CubeBehaviour : Bolt.EntityEventListener<ICubeState> {
     public override void OnEvent(FlashColorEvent evnt)
     {
         resetColorTime = Time.time + 0.2f;
-        renderer.material.color = evnt.FlashColor; 
+        GetComponent<Renderer>().material.color = evnt.FlashColor; 
     }
 
     void Update()
     {
         if (resetColorTime < Time.time)
         {
-            renderer.material.color = state.CubeColor; 
+            GetComponent<Renderer>().material.color = state.CubeColor; 
         }
     }
 
